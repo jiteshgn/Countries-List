@@ -1,0 +1,387 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  width:100%;
+}
+body{
+  background:#fff;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.formwrp{
+  display:flex;
+  justify-content:center;
+  margin:0 auto;
+}
+form{
+  width:45vw;
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+.carddiv{
+  margin-top:5%;
+  border:1px solid #000;
+  box-shadow: 0px 0px 2px 2px #0000002e;
+  cursor:pointer;
+}
+.nvs{
+  visibility:hidden;
+  overflow:hidden;
+}
+.carddiv .MuiCardContent-root{
+padding-bottom: 24px;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+margin-left:3%;
+}
+.carddiv .MuiCardContent-root div{
+  font-size:1rem;
+}
+.carddiv .MuiCardContent-root span{
+  font-weight:600;
+}
+.cardImg{
+  text-align:right;
+}
+input[type="text"]{
+  width:100%;
+  height:2rem;
+  padding-left:0.5vw;
+}
+select{
+  width:15rem;
+  height:2rem;
+  padding-left:0.5vw;
+}
+#subbtn{
+  padding:1% 2%;
+  margin:0 0 0 2%;
+  position:relative;
+  bottom:-0.2rem;
+}
+.loader-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* position: absolute; */
+  /* background: rgb(0 0 0 / 41%); */
+  background:transparent;
+  z-index: 1;
+}
+
+.searchresults{
+  width: 65%;
+  margin: 1vw auto 0 auto;
+}
+.card1 span{
+  text-align:left;
+  width: 18vw;
+}
+
+.card1 span p{
+  margin:0;
+}
+
+.carddiv > div > div{
+  margin-left:unset !important;
+  flex-direction:row !important;
+}
+.carddiv > div > div > div{
+  width:50%;
+}
+.carddiv > div > div > div > div{
+  display:flex;
+}
+.carddiv > div{
+  max-width:unset;
+}
+.carddiv label{
+  width:15vw;
+  text-align:left;
+  color: #496dae;
+}
+.carddiv img{
+  right: 21%;
+  height: 10vw;
+}
+
+.countrydetailswrp{
+  position: fixed;
+  width:100%;
+  height:100%;
+  top: 0%;
+  left: 0%;
+  background:#00000059;
+  box-shadow: 0px 0px 2px 2px #0000002e;
+}
+
+.countrydetails{
+  border:1px solid #000;
+  width:50%;
+  min-height:50%;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  margin-top: -1rem;
+  padding-bottom:5%;
+  position: fixed;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index:11;
+  background:#fff;
+}
+.countrydetails h4{
+  margin-left:5%;
+  margin-bottom:0;
+}
+.countrydetails img{
+  position:absolute;
+  top:0;
+  right:0;
+  width:25vw;
+  /* min-width:20rem; */
+}
+.countrydetails p{
+  display:inline;
+  margin:0;
+}
+.countrydetails > div{
+  width:100%;
+  text-align: left;
+  margin-left:5%;
+}
+.countrydetails label{
+  display: inline-block;
+  width: 15% !important;
+  color: #4e78c2;
+}
+.countrydetails u{
+  display: block;
+  margin-bottom:2%;
+}
+.closebtn{
+  position: absolute;
+  top: -3vw;
+  right: 0;
+  border-radius:none !important;
+  font-size:2vw;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow: 0px 0px 2px 2px #0000002e;
+  padding:1vw;
+  outline:none;
+  border:none;
+}
+.closebtn span{
+  display:inline-block;
+  margin-top:-1vw;
+}
+.countrydetails u{
+  color: #00067c;
+}
+hr{
+  color: #000;
+  border-top: 1px solid #000;
+  width: 92%;
+  height: 1px;
+  margin-left: 0;
+  margin-right: 4%;
+}
+hr:nth-of-type(1),hr:nth-of-type(2){
+  width:20vw;
+}
+.lnginnerdiv{
+  margin-top:-4%;
+  margin-left:15%;
+}
+
+.lnginnerdiv > span{
+  text-transform: capitalize;
+}
+.lnginnerdiv > span > span{
+  text-transform: none;
+}
+#loadmorediv{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:60%;
+  margin:3% auto 0 auto;
+}
+#loadmorediv span{  
+  position:absolute;
+  right:20%;
+}
+.loadMoreData {
+  display: flex;
+  align-items: center;
+}
+.loadMoreData span{
+  color:#d3b8b8;
+  font-size: 80%;
+  margin-left:0.5vw;
+  pointer-events:none;
+}
+button[disabled], button[disabled] span{
+  color:#7a5858;
+}
+.nomoredata{
+  margin-top:2%;
+  font-weight:bold;
+}
+.cpe,.cpe input{
+  cursor:pointer;
+}
+.cpe p{
+  display:inline;
+  margin:0;
+}
+
+.lngdetailsdiv{
+  display:flex;
+}
+
+
+
+
+
+
+
+@media only screen and (max-width: 1100px) {
+  select{
+    width:100%;
+  }
+  .countrydetails label {
+    width: 30% !important;
+  }
+  .countrydetails h4{
+    margin-bottom:15%;
+    font-size:2.3vw;
+  }
+  hr:nth-of-type(1),hr:nth-of-type(2){
+    width:92%;
+  }
+}
+@media only screen and (max-width: 782px) {
+  select{
+    width:100%;
+  }
+  .carddiv > div > div{
+    flex-direction: column-reverse !important;
+  }
+  .carddiv > div > div > div {
+    width: unset;
+    margin-bottom: 5%;
+}
+  .carddiv > div > div .cardTxt {
+    width:100%;
+  }
+  .carddiv label {
+    width: 40%;
+  }
+  .countrydetails label {
+    width: 40% !important;
+  }
+}
+
+@media only screen and (max-width: 782px) {
+  .carddiv > div > div > div > div {
+    display: block;
+}
+.carddiv label {
+  width: 40%;
+  width: 100%;
+  display: block;
+  text-align: left;
+}
+.carddiv > div > div .cardTxt {
+  width: 40%;
+  width: 100%;
+  display: block;
+  text-align: left;
+}
+.closebtn{
+  top: -7vw;
+  font-size:3vw;
+  padding:2vw;
+  border-radius:unset;
+}
+#loadmorediv{
+  display:block;
+}
+.loadMoreData{
+  margin:auto;
+}
+#loadmorediv span{
+  position:unset;
+}
+}
+@media only screen and (max-width: 420px) {
+  .cardTxt > div{
+    margin-bottom:5%;
+    line-height: 100%;
+  }
+  #subbtn{
+    font-size: 3.5vw;
+      padding: 3% 10%;
+  }
+  .countrydetails div{
+    overflow: auto;
+    max-height: 500px;
+  }
+  .countrydetails label {
+    width: 100% !important;
+    color:light-grey !important;
+    color: #655656;
+    font-size: 4vw !important;
+  }
+  .countrydetails h4 {
+    margin-bottom: 5%;
+    font-size: 5vw;
+    margin-top: 35%;
+  }
+  .closebtn{
+    font-size: 4vw;
+    top: -8vw;
+  }
+}

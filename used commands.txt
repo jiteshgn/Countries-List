@@ -1,0 +1,17 @@
+npm create vite@latest client
+npm install -g npm@10.9.1
+npm i
+npm run dev
+npm init -y
+npm i express
+node api/index.js
+  "type" : "module", (in package.json)
+npm i nodemon
+
+npm i -S @vitejs/plugin-react (due to error in vite.config.js)
+
+npm install @material-ui/core (for card component)
+
+npm install react-loader-spinner (for spinner)
+
+npm install react-router-dom
