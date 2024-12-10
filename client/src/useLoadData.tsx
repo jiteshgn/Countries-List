@@ -9,11 +9,14 @@ export default function useLoadData() {
   
   //fetch all countries initial load:
   const fetchCountries = async () => {
+    console.log("page: ",page)
     const res = await fetch(`api/country/${page}`, {
       method: 'GET'
     });
     const response=await res.json();
+    // if(res.status!==404)
     setCountries(response)
+    // setCountries(prev=>[...prev,...response])
  }
 
  //fetch list of all regions as array
@@ -55,12 +58,12 @@ export default function useLoadData() {
  //load all changes initial load:
   useEffect(()=>{
     fetchCountries()
-  },[])
+  },[page])
   
  //re-load region and timezone lists on change in countries and initial load
   useEffect(()=>{
     loadAllRegions()
     loadAllTimezones()
   },[countries])
-  return {countries,regionFilt,timezoneFilt,setPage}
+  return {countries,regionFilt,timezoneFilt,page,setPage}
 }

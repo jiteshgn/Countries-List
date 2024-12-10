@@ -1,12 +1,13 @@
 #root {
-  max-width: 1280px;
+  /* max-width: 1280px; */
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  width:100%;
+  width:90%;
 }
 body{
   background:#fff;
+  place-items: flex-start;
 }
 
 .logo {
@@ -79,6 +80,9 @@ margin-left:3%;
 .cardImg{
   text-align:right;
 }
+.cardImg img{
+  box-shadow:0px 0px 1px 1px #0000002e;
+}
 input[type="text"]{
   width:100%;
   height:2rem;
@@ -107,9 +111,16 @@ select{
   z-index: 1;
 }
 
-.searchresults{
-  width: 65%;
+.searchresults {
+  /* width: 65%; */
   margin: 1vw auto 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 22%);
+  /* grid-template-rows: repeat(auto-fill, 1.5%); */
+  grid-row-gap: .5em;
+  grid-column-gap: 3%;
+  grid-auto-flow: row;
 }
 .card1 span{
   text-align:left;
@@ -120,9 +131,14 @@ select{
   margin:0;
 }
 
+.carddiv > div{
+  height:100%;
+  max-width:unset;
+}
 .carddiv > div > div{
+  padding-bottom:unset !important;
   margin-left:unset !important;
-  flex-direction:row !important;
+  /* flex-direction:row !important; */
 }
 .carddiv > div > div > div{
   width:50%;
@@ -130,19 +146,65 @@ select{
 .carddiv > div > div > div > div{
   display:flex;
 }
-.carddiv > div{
-  max-width:unset;
-}
 .carddiv label{
-  width:15vw;
+  min-width:8vw;
   text-align:left;
   color: #496dae;
 }
-.carddiv img{
-  right: 21%;
-  height: 10vw;
+.cardTxt{
+  margin-top: 5%;
+}
+.cardTxt > div:nth-of-type(1) span {
+  display: block;
+  min-width: 9vw;
+}
+.cardTxt > div:nth-of-type(4) span {
+  display: block;
+  min-width: 13vw;
+  overflow-x: hidden;
+}
+.cardTxt > div:nth-of-type(4) span > p {
+  color: #00009f;
+}
+::-webkit-scrollbar-track {
+  border: 1px solid #d3c4c4;
+  padding: 2px 0;
+  background-color: #d3c4c4;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #737272;
+  border: 1px solid #000;
+}
+.cardTxt > div:nth-of-type(4) section {
+  max-height: 6.5vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* border: 1px solid #d3c4c4; */
+  width: 9vw;
+}
+.cardTxt > div:last-child p span{
+  display:inline-block;
+  width:100%;
+}
+.cardTxt > div:last-child label p{
+  width:80%;
+  margin:0;
+}
+.cardTxt > div:last-child span p{
+  min-width: 9vw;
+  font-size: 0.9rem;
 }
 
+.carddiv img {
+  right: 21%;
+  height: 10vw;
+  width: 17vw;
+}
 .countrydetailswrp{
   position: fixed;
   width:100%;
@@ -170,13 +232,15 @@ select{
   background:#fff;
 }
 .countrydetails h4{
-  margin-left:5%;
+  margin-left:0;
   margin-bottom:0;
+  font-size:2vw;
 }
 .countrydetails img{
   position:absolute;
   top:0;
   right:0;
+  box-shadow:0px 0px 1px 1px #0000002e;
   width:25vw;
   /* min-width:20rem; */
 }
@@ -301,18 +365,28 @@ button[disabled], button[disabled] span{
   hr:nth-of-type(1),hr:nth-of-type(2){
     width:92%;
   }
+  .searchresults {
+    grid-template-columns: repeat(2, 48%);
+    grid-column-gap: 4%;
+  }
+  .carddiv label {
+    min-width: 17vw;
+  }
+  .cardTxt > div:nth-of-type(4) section {
+    width: 13vw;
+  }
 }
 @media only screen and (max-width: 782px) {
   select{
     width:100%;
   }
-  .carddiv > div > div{
+  /* .carddiv > div > div{
     flex-direction: column-reverse !important;
-  }
+  } */
   .carddiv > div > div > div {
     width: unset;
     margin-bottom: 5%;
-}
+  }
   .carddiv > div > div .cardTxt {
     width:100%;
   }
@@ -322,15 +396,22 @@ button[disabled], button[disabled] span{
   .countrydetails label {
     width: 40% !important;
   }
+  .searchresults {
+    grid-template-columns: repeat(1, 100%);
+  }
 }
 
 @media only screen and (max-width: 782px) {
-  .carddiv > div > div > div > div {
-    display: block;
+.carddiv > div > div > div > div {
+  display: flex;
+}
+.carddiv img {
+  right: 21%;
+  height: 14vw;
+  width: auto;
 }
 .carddiv label {
   width: 40%;
-  width: 100%;
   display: block;
   text-align: left;
 }
@@ -346,6 +427,9 @@ button[disabled], button[disabled] span{
   padding:2vw;
   border-radius:unset;
 }
+.countrydetails h4 {
+  font-size: 2.8vw;
+}
 #loadmorediv{
   display:block;
 }
@@ -357,10 +441,28 @@ button[disabled], button[disabled] span{
 }
 }
 @media only screen and (max-width: 420px) {
+  .carddiv > div > div > div > div {
+    display: block;
+}
   .cardTxt > div{
     margin-bottom:5%;
     line-height: 100%;
   }
+  .cardTxt > div:nth-of-type(1) span {
+    width: 100%;
+}
+.cardTxt label {
+  width: 100%;
+  margin-bottom:2vw;
+}
+.cardTxt > div:nth-of-type(4) span {
+  display: flex;
+  width: 100%;
+  gap: 2rem;
+}
+.cardTxt > div:nth-of-type(4) section {
+  width: 60%;
+}
   #subbtn{
     font-size: 3.5vw;
       padding: 3% 10%;
@@ -380,6 +482,9 @@ button[disabled], button[disabled] span{
     font-size: 5vw;
     margin-top: 35%;
   }
+  .countrydetails img {
+    position: unset;
+}
   .closebtn{
     font-size: 4vw;
     top: -8vw;

@@ -37,7 +37,7 @@ export default function CardComponent({country,handleClick}:CardProps) {
     setCustTime(timezones2);
   }
 
-
+  const pattern = new RegExp(',')
   useEffect(()=>{
     //calculate date and time for initial load
     calcTime(country.timezones)
@@ -46,6 +46,7 @@ export default function CardComponent({country,handleClick}:CardProps) {
     <>{/* Using Card component */}
   <Card className="card1" sx={{ maxWidth: 345 }} onClick={()=>handleClick(country)}>
     <CardContent>
+    <div className='cardImg'><img src={country.flags.png}  loading="lazy"/></div>
       <div className='cardTxt'>
       <Typography gutterBottom variant="h5" component="div">
       <label>Name:</label> <span>{country.name.common}</span>
@@ -57,10 +58,16 @@ export default function CardComponent({country,handleClick}:CardProps) {
       <label>Region:</label> <span>{country.region}</span>
       </Typography>
       <Typography gutterBottom variant="h5" component="div">
-      <label>Local Date & Time:</label> <span>{custTime?.map((time,i)=><p key={i}>{time}</p>)}</span>
+      <label><p>Local Date & Time:</p></label>
+      <span>{custTime&&custTime.length>0?<p>{custTime[0].split(pattern,1)[0]}<br/></p>:''}
+      <section>{custTime?.map((time,i)=><p key={i}>
+        
+        {time.split(pattern,2)[1]}
+        
+        
+        </p>)}</section></span>
       </Typography>
       </div>
-      <div className='cardImg'><img src={country.flags.png}  loading="lazy"/></div>
     </CardContent>
   </Card></>
   )

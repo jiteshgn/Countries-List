@@ -2,8 +2,17 @@ import { errorHandler } from '../../utils/error.js';
 import countries from './../../data.json' assert {type: 'json'};
 
 
-export const fetchAllCountries=(req,res)=>{
+export const fetchAllCountries=(req,res,next)=>{
   // console.log('req ',req.params.page)
+  const countries1=[]
+  const limit=12;
+  const page=req.params.page;
+  // if(page*limit>=countries.length)
+  //   return next(errorHandler(404,'No more countries'))
+  for(let i=(page-1)*limit;i<page*limit;i++){
+    countries1.push(countries[i])
+  }
+  console.log('req11 ',req.params.page,countries1.length)
   return res.status(200).send(countries)
   // return res.json({
   //   countries:countries

@@ -70,9 +70,9 @@ export default function FilterCountry({countries,loadCheck,setLoadCheck}:FilterP
     {limitedCountries?.map((country:Country,index:number)=>country?<div key={index} className='carddiv'>   
       <MyCardComponent country={country} handleClick={handleClick}/>
     </div>:'')}
-    {noData?<div className="nomoredata">No More Data Found</div>:''}
     </Suspense>
     </>
-    </div></>
+    </div>
+    {noData?<div className="nomoredata">No More Data Found</div>:''}</>
   )
 }

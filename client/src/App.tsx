@@ -26,7 +26,7 @@ export type ValuesType={
   timezones:string;
 }
 function App() {
-  const {countries,regionFilt,timezoneFilt,setPage}=useLoadData()
+  const {countries,regionFilt,timezoneFilt,page,setPage}=useLoadData()
   
   const [contName, setContName] = useState<string>('')
   const [filtCountries,setFiltCountries]=useState<Country[]>([])
@@ -50,10 +50,16 @@ function App() {
     setTimeout(() => {
       setLoading(false);
     }, 500);
+  }, []);
 
-    //initially and change in country list, set the countries variable
+  //initially and change in country list, set the countries variable
+  useEffect(() => {
     setFiltCountries(countries)
   }, [countries]);
+
+  useEffect(() => {
+    setTimeout(()=>setScrollLoading(false),2000)
+  }, [scrollLoading]);
 
   // any change in variables are captured into values
   const handleChange=(elemname:string,elemvalue:string)=>{
@@ -111,15 +117,18 @@ function App() {
 
     setTimeout(()=>setLoading(false),500);
   } 
-
+  const [page1,setPage1]=useState(1)
   //function for infinite scroll
   const handleScroll:()=>void=():void=>{
     const {scrollTop,clientHeight,scrollHeight}=document.documentElement
-
-    if(scrollTop + clientHeight >= 50){   
+    //  console.log(page,scrollTop,clientHeight,scrollHeight - 10)
+    // if(scrollHeight+1 + window.innerHeight >= scrollTop && !scrollLoading ){   
+      // if((scrollTop > clientHeight*page1) && !scrollLoading ){  
+        if(scrollTop + clientHeight >= scrollHeight - 10 && !scrollLoading ) {
       //scrollHeight - 10 && !scrollLoading   
-      setScrollLoading(true);
-      setPage(prev=>prev+1);
+      // setScrollLoading(true);
+      // setPage(prev=>prev+1);
+      setPage1(prev=>prev+1);
     }
   }
   //infinite scroll on scrolling
@@ -129,7 +138,7 @@ function App() {
     return():void=>{
       window.removeEventListener("scroll",handleScroll)
     }
-  },[])
+  },[page1])
 
   return (
     <>
@@ -164,6 +173,7 @@ function App() {
     <FilterCountry countries={filtCountries} loadCheck={loadCheck} setLoadCheck={setLoadCheck}/>
 
     {filtCountries.length===0 && !init?'No Data Found, please try again':''}
+    {scrollLoading?'Loading data...':''}
     </>}
     </>
   )
